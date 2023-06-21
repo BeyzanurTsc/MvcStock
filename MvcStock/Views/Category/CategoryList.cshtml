@@ -1,0 +1,31 @@
+﻿@using MvcStock.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<TBL_CATEGORY>
+@{
+    ViewBag.Title = "CategoryList";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>AD</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+    </tr>
+    <tbody>
+        @foreach (var ctgr in Model)
+        {
+            <tr>
+                <td>@ctgr.CATEGORYID </td>
+                <td>@ctgr.CATEGORYNAME</td>
+                <td><a href="/Category/DeleteCategory/@ctgr.CATEGORYID" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Category/GetCategory/@ctgr.CATEGORYID" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("CategoryList", new {page}))
+
+<a href="/Category/AddCategory" class="btn btn-info">KATEGORİ EKLE</a>

@@ -1,0 +1,37 @@
+﻿@model MvcStock.Models.Entity.TBLSALE
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<h2>Satış yapmak için butona tıklayınız.</h2>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">Satış yap</button>
+
+<div class="modal" id="modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Satış Ekranı</h2>
+            </div>
+            <form method="post" action="/Sales/AddSales">
+                <div class="modal-body">
+                    <label>Ürün Adı: </label>
+                    @Html.TextBoxFor(s => s.PRODUCT, new { @class = "form-control" })
+                    <br />
+                    <label>Ad Soyad: </label>
+                    @Html.TextBoxFor(s => s.CUSTOMER, new { @class = "form-control" })
+                    <br />
+                    <label>Adet: </label>
+                    @Html.TextBoxFor(s => s.PIECE, new { @class = "form-control" })
+                    <br />
+                    <label>Fiyat: </label>
+                    @Html.TextBoxFor(s => s.PRİCE, new { @class = "form-control" })
+                    <br />
+                    <button type="submit" class="btn btn-info">Kaydet</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

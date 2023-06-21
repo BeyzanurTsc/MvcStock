@@ -1,0 +1,20 @@
+﻿@model MvcStock.Models.Entity.TBL_CATEGORY
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <!--<div>
+        <label>Ad: </label>
+        <input type="text" class="form-control" name="CATEGORYNAME" />--> <!-- name in veritabanındaki isimle aynı olması gerekiyor. -->
+    <!--</div>-->
+    <div>
+        <label>Ad: </label>
+        @Html.TextBoxFor(m => m.CATEGORYNAME, new {@class="form-control"})
+        @Html.ValidationMessageFor(m => m.CATEGORYNAME, "", new {@style="color:red"})
+    </div>
+    <div style="margin-top:10px">
+        <button class="btn btn-info">Ekle</button>
+    </div>
+</form>

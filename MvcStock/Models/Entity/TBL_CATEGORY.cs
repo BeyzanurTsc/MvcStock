@@ -22,7 +22,7 @@ namespace MvcStock.Models.Entity
         }
     
         public short CATEGORYID { get; set; }
-        [Required(ErrorMessage ="Bu alanı boş bırakamazsınız!!!")]
+        [Required(ErrorMessage ="Bu alanı boş geçemezsiniz!")]
         public string CATEGORYNAME { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
